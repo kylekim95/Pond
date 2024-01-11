@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Pond.Build.cs",
+		"D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond.Target.cs",
+		"D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\PondEditor.Target.cs"
+	],
+	"EngineVersion": "5.3.2"
+}
