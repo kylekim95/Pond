@@ -4,9 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-
-#include "BuoyancyTypes.h"
-
 #include "SkippingStones.generated.h"
 
 
@@ -21,22 +18,35 @@ public:
 
 	//~ Begin UActorComponent Interface.	
 	virtual void BeginPlay() override;
-	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	//~ End UActorComponent Interface
 
-	//~ Begin UObject Interface.	
-	// virtual void GetResourceSizeEx(FResourceSizeEx& CumulativeResourceSize) override;
-	// virtual void PostLoad() override;
-	// virtual void Serialize(FArchive& Ar) override;
-	//~ End UObject Interface
+	UFUNCTION()
+	void OnOverlapBegin(
+		UPrimitiveComponent* OverlappedComp,
+		AActor* OtherActor, 
+		UPrimitiveComponent* OtherComp, 
+		int32 OtherBodyIndex, 
+		bool bFromSweep, 
+		const FHitResult& SweepResult
+	);
+	UFUNCTION()
+	void OnOverlapEnd(
+		class UPrimitiveComponent* OverlappedComp, 
+		class AActor* OtherActor, 
+		class UPrimitiveComponent* OtherComp, 
+		int32 OtherBodyIndex
+	);
 
-	virtual void Update(float DeltaTime);
+	UPROPERTY(EditAnywhere, Category="Test")
+	float InitialForceScalarValue = 500.0f;
+	UPROPERTY(EditAnywhere, Category="Test")
+	FVector InitialDirection = FVector(0.99f, 0.1f, 0.0f);
+	float EntryAngle = 20.0f;
+
+	void ApplyDrag();
 
 protected:
-	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = Buoyancy)
-	FBuoyancyData BuoyancyData;
-
-public:	
-		
+	TObjectPtr<UPrimitiveComponent> SimulatingComponent;
+	TObjectPtr<UStaticMeshComponent> StaticMeshComponent;
 };
