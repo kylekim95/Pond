@@ -6,6 +6,29 @@
 #include "Components/ActorComponent.h"
 #include "SkippingStones.generated.h"
 
+USTRUCT(BlueprintType)
+struct FThrowDesc
+{
+	GENERATED_BODY()
+
+	FThrowDesc(){}
+	FThrowDesc(float _LinearForce, const FVector _Direction, float _Torque, const FRotator _Orientation){
+		LinearForce		= _LinearForce;
+		Direction		= _Direction;
+		Torque			= _Torque;
+		Orientation 	= _Orientation;
+	}
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Test Variables")
+	float LinearForce = 0.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Test Variables")
+	FVector Direction = FVector::ForwardVector;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Test Variables")
+	float Torque = 0.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Test Variables")
+	FRotator Orientation;
+};
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class POND_API USkippingStones : public UActorComponent
@@ -13,13 +36,11 @@ class POND_API USkippingStones : public UActorComponent
 	GENERATED_BODY()
 
 public:	
-	// Sets default values for this component's properties
 	USkippingStones();
 
-	//~ Begin UActorComponent Interface.	
+	//UActorComponent Interface.	
 	virtual void BeginPlay() override;
 	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-	//~ End UActorComponent Interface
 
 	UFUNCTION()
 	void OnOverlapBegin(
@@ -37,16 +58,32 @@ public:
 		class UPrimitiveComponent* OtherComp, 
 		int32 OtherBodyIndex
 	);
+	UFUNCTION()
+	void OnHitComponent(
+		UPrimitiveComponent* HitComp,
+		AActor* OtherActor,
+		UPrimitiveComponent* OtherComp,
+		FVector NormalImpulse,
+		const FHitResult& Hit
+	);
 
-	UPROPERTY(EditAnywhere, Category="Test")
-	float InitialForceScalarValue = 500.0f;
-	UPROPERTY(EditAnywhere, Category="Test")
-	FVector InitialDirection = FVector(0.99f, 0.1f, 0.0f);
-	float EntryAngle = 20.0f;
+	UFUNCTION()
+	void Throw(FThrowDesc ThrowDesc);
 
-	void ApplyDrag();
+	//~ State
+	bool Overlapping = false;
+	TObjectPtr<AActor> OverlappingActor;
+	bool Collided = false;
+	bool Stable = false;
+	FThrowDesc Current;
+
+	//~ Constants
+	float VelocityThreshold = 100.0f;
+	
+	float LinearForceThreshold = 100.0f;
+	float TorqueThreshold = 100.0f;
 
 protected:
-	TObjectPtr<UPrimitiveComponent> SimulatingComponent;
+	TObjectPtr<UPrimitiveComponent> PrimitiveComponent;
 	TObjectPtr<UStaticMeshComponent> StaticMeshComponent;
 };
