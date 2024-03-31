@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\dev\\unrealprojects\\pond\\pond\\intermediate\\build\\win64\\unrealeditor\\inc\\pond\\uht\\tp_weaponcomponent.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\dev\\unrealprojects\\pond\\pond\\intermediate\\build\\win64\\x64\\pondeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "Includes": [
+            "d:\\dev\\unrealprojects\\pond\\pond\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\pond\\definitions.pond.h",
+            "d:\\dev\\unrealprojects\\pond\\pond\\source\\pond\\tp_weaponcomponent.h",
+            "d:\\dev\\unrealprojects\\pond\\pond\\intermediate\\build\\win64\\unrealeditor\\inc\\pond\\uht\\tp_weaponcomponent.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

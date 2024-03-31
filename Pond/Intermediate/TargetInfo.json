@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "Pond",
+			"Path": "..\\Source\\Pond.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "PondEditor",
+			"Path": "..\\Source\\PondEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
