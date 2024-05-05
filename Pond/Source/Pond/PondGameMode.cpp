@@ -13,4 +13,7 @@ APondGameMode::APondGameMode()
 
 	static ConstructorHelpers::FClassFinder<APlayerController> PlayerControllerClassFinder(TEXT("/Script/Engine.Blueprint'/Game/UserContent/BP_MyPlayerController.BP_MyPlayerController_C'"));
 	PlayerControllerClass = PlayerControllerClassFinder.Class;
+
+	// static ConstructorHelpers::FClassFinder<UClass> HUDClassFinder(TEXT("/Script/CoreUObject.Class'/Script/Pond.CrosshairWidget_C'"));
+	// HUDClass = HUDClassFinder.Class;
 }

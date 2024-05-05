@@ -7,7 +7,9 @@
 #include "EnhancedInputSubsystems.h"
 #include "Components/CapsuleComponent.h"
 #include "InputActionValue.h"
-
+#include "Blueprint/WidgetLayoutLibrary.h"
+#include "MyPlayerController.h"
+#include "CrosshairWidget.h"
 
 // Sets default values
 AMyCharacter::AMyCharacter()
@@ -32,7 +34,6 @@ void AMyCharacter::BeginPlay()
 void AMyCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 // Called to bind functionality to input
@@ -43,10 +44,10 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	// Set up action bindings
 	if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerInputComponent))
 	{
-		// Moving
-		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Started, this, &AMyCharacter::Move);
 		// Look
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AMyCharacter::Look);
+		//Interact
+		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Started, this, &AMyCharacter::Interact);
 	}
 	else
 	{
@@ -54,12 +55,18 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	}
 }
 
-void AMyCharacter::Move(const FInputActionValue& Value)
-{
-	// UE_LOG(LogTemp, Warning, TEXT("Character::MOVE"));
-}
-
 void AMyCharacter::Look(const FInputActionValue& Value)
 {
-	// UE_LOG(LogTemp, Warning, TEXT("Character::LOOK"));
+    FVector2D InputVector = Value.Get<FVector2D>();
+	InputVector.Normalize();
+
+	FRotator CurrentCameraRotation = FirstPersonCameraComponent->GetRelativeRotation();
+	CurrentCameraRotation.Pitch = FMath::Lerp(CurrentCameraRotation.Pitch, FMath::Sign(InputVector.Y) * 10.0f, FMath::Abs(InputVector.Y) * 0.05f);
+	CurrentCameraRotation.Yaw 	= FMath::Lerp(CurrentCameraRotation.Yaw, FMath::Sign(InputVector.X) * 10.0f, FMath::Abs(InputVector.X) * 0.05f);
+	FirstPersonCameraComponent->SetRelativeRotation(CurrentCameraRotation);
+}
+
+void AMyCharacter::Interact(const FInputActionValue& Value)
+{
+	UE_LOG(LogTemp, Warning, TEXT("Character::Interact"));
 }
