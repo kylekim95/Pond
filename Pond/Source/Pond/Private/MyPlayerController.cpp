@@ -97,7 +97,7 @@ void AMyPlayerController::Look(const FInputActionValue &Value)
 
 void AMyPlayerController::Interact(const FInputActionValue& Value)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Controller::Interact"));
+	InteractOptions[CrosshairWidget->CurrentSelectedOptionIndex]->OnInteract(this->GetPawn());
 }
 
 void AMyPlayerController::ChangeInteractOption(const FInputActionValue& Value)

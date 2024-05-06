@@ -58,10 +58,10 @@ public:
 	void InteractOptionsFade(bool inout);
 	TArray<FString> InteractOptions;
 
+	int CurrentSelectedOptionIndex = 0;
+
 private:
 	FWidgetAnimationDynamicEvent ReOrderDelegate;
-
-	int CurrentSelectedOptionIndex = 0;
 
 	bool InteractOptionsDisplayed = false;
 };

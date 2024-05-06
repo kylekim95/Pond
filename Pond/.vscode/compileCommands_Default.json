@@ -96,6 +96,14 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\AIC_DEM.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
 		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\CrosshairWidget.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
@@ -153,6 +161,14 @@
 	},
 	{
 		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\AC_Interactable.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\AIC_DEM.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
