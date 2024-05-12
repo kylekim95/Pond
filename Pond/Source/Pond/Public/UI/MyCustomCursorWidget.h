@@ -25,8 +25,6 @@ class POND_API UMyCustomCursorWidget : public UUserWidget
 public:
 	UMyCustomCursorWidget(const FObjectInitializer& ObjectInitializer);
 	virtual void NativeConstruct() override;
-	
-	virtual void OnHoverInteractable(bool Interactable);
 
 private:
 	FString DefaultCustomCursorImgRef = "/Script/Engine.Texture2D'/Game/MyContent/Blueprints/UI/Crosshair.Crosshair'";

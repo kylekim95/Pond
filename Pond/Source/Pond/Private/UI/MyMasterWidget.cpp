@@ -23,8 +23,3 @@ void UMyMasterWidget::UpdateCursorPosition(const FVector2D& Value)
     UCanvasPanelSlot* CustomCursorWidgetCanvasPanelSlot = UWidgetLayoutLibrary::SlotAsCanvasSlot(CustomCursorWidget);
     CustomCursorWidgetCanvasPanelSlot->SetPosition(Value);
 }
-
-void UMyMasterWidget::OnHoverInteractable(bool Interactable)
-{
-    CustomCursorWidget->OnHoverInteractable(Interactable);
-}

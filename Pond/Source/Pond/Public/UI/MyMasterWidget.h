@@ -25,5 +25,4 @@ public:
 	UMyMasterWidget(const FObjectInitializer& ObjectInitializer);
 	virtual void NativeConstruct() override;
 	void UpdateCursorPosition(const FVector2D& Value);
-	void OnHoverInteractable(bool Interactable);
 };

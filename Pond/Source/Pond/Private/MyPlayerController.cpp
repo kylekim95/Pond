@@ -8,6 +8,7 @@
 #include "UI/MyMasterWidget.h"
 #include "Blueprint/WidgetLayoutLibrary.h"
 #include "Camera/CameraComponent.h"
+#include "MyInteractable.h"
 
 AMyPlayerController::AMyPlayerController()
 {
@@ -55,11 +56,13 @@ void AMyPlayerController::OnLookAction(const FInputActionValue& Value)
     float TraceDistance = 10000.0f;
     GetWorld()->LineTraceSingleByChannel(HitResult, CameraPosition, CameraPosition + TraceDistance * TraceDirection, ECC_Visibility, CollisionQueryParams);
 
-    if(HitResult.GetActor())
+    if(HitResult.GetActor() && HitResult.GetActor() != ActorOnHover)
     {
-        if(ActorOnHover != HitResult.GetActor())
+        ActorOnHover = HitResult.GetActor();
+        InteractableComponents = ActorOnHover->GetComponentsByInterface(UMyInteractable::StaticClass());
+        for(auto Elem : InteractableComponents)
         {
-            
+            Cast<IMyInteractable>(Elem)->OnInteract(this);
         }
     }
 }

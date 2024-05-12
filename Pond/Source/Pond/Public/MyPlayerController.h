@@ -40,4 +40,5 @@ private:
 
 	UMyMasterWidget* MasterWidget;
 	AActor* ActorOnHover;
+	TArray<UActorComponent*> InteractableComponents;
 };

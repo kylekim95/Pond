@@ -20,8 +20,3 @@ void UMyCustomCursorWidget::NativeConstruct()
     Super::NativeConstruct();
     CustomCursor->SetBrushFromTexture(CustomCursorImg);
 }
-
-void UMyCustomCursorWidget::OnHoverInteractable(bool Interactable)
-{
-    UE_LOG(LogTemp, Warning, TEXT("Interactable"));
-}
