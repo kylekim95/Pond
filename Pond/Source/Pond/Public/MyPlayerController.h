@@ -12,46 +12,32 @@
 
 class UInputMappingContext;
 class UInputAction;
-class UCrosshairWidget;
-class IInteractable;
 struct FInputActionValue;
+class UMyMasterWidget;
 
 UCLASS()
 class POND_API AMyPlayerController : public APlayerController
 {
 	GENERATED_BODY()
-
-	/** MappingContext */
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Input, meta=(AllowPrivateAccess = "true"))
-	UInputMappingContext* DefaultMappingContext;
 	
-	/** Look Input Action */
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Input, meta=(AllowPrivateAccess = "true"))
+	UInputMappingContext* InputMappingContext;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Input, meta=(AllowPrivateAccess = "true"))
 	UInputAction* LookAction;
-	/** Interact Input Action */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Input, meta=(AllowPrivateAccess = "true"))
-	UInputAction* InteractAction;
-	/** ChangeInteractOption Input Action */
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Input, meta=(AllowPrivateAccess = "true"))
-	UInputAction* ChangeInteractOptionAction;
+	UInputAction* ScrollAction;
 
-	UPROPERTY(EditAnywhere, Category="UI")
-	TSubclassOf<class UCrosshairWidget> CrosshairWidgetClass;
-
-public:
-	virtual void BeginPlay() override;
-	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
+	UPROPERTY(EditAnywhere, Category=UI)
+	TSubclassOf<class UMyMasterWidget> MasterWidgetClass;
 	
-	void SetupPlayerInputComponent();
-
-	void Look(const FInputActionValue& Value);
-	void Interact(const FInputActionValue& Value);
-	void ChangeInteractOption(const FInputActionValue& Value);
-
-	UCrosshairWidget* CrosshairWidget;
+public:
+	AMyPlayerController();
+	virtual void BeginPlay() override;
 
 private:
-	float MaxRotation = 10.0f;
+	void OnLookAction(const FInputActionValue& Value);
+	void OnScrollAction(const FInputActionValue& Value);
+
+	UMyMasterWidget* MasterWidget;
 	AActor* ActorOnHover;
-	TArray<IInteractable*> InteractOptions;
 };

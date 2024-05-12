@@ -24,22 +24,6 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\PondCharacter.cpp",
-		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
-			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
-		],
-		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
-	},
-	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\PondCharacter.h",
-		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
-			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
-		],
-		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
-	},
-	{
 		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\PondGameMode.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
@@ -56,7 +40,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\PondPlayerController.cpp",
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\MyInteractableComponent.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
@@ -64,7 +48,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\PondPlayerController.h",
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\MyInteractableInterface.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
@@ -72,55 +56,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\PondProjectile.cpp",
-		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
-			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
-		],
-		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
-	},
-	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\PondProjectile.h",
-		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
-			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
-		],
-		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
-	},
-	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\AC_Interactable.cpp",
-		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
-			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
-		],
-		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
-	},
-	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\AIC_DEM.cpp",
-		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
-			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
-		],
-		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
-	},
-	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\CrosshairWidget.cpp",
-		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
-			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
-		],
-		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
-	},
-	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\Interactable.cpp",
-		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
-			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
-		],
-		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
-	},
-	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\MyCharacter.cpp",
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\MyPawn.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
@@ -136,7 +72,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\SkippingStones.cpp",
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\UI\\MyCustomCursorWidget.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
@@ -144,7 +80,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\Subsystems\\REGEvent.cpp",
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\UI\\MyCyclingMenuItemWidget.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
@@ -152,7 +88,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\Subsystems\\WSS_RandomEventGenerator.cpp",
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\UI\\MyCyclingMenuWidget.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
@@ -160,7 +96,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\AC_Interactable.h",
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\UI\\MyMasterWidget.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
@@ -168,7 +104,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\AIC_DEM.h",
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\MyInteractableComponent.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
@@ -176,7 +112,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\CrosshairWidget.h",
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\MyInteractableInterface.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
@@ -184,15 +120,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\Interactable.h",
-		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
-			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
-		],
-		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
-	},
-	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\MyCharacter.h",
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\MyPawn.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
@@ -208,7 +136,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\SkippingStones.h",
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\UI\\MyCustomCursorWidget.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
@@ -216,7 +144,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\Subsystems\\REGEvent.h",
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\UI\\MyCyclingMenuItemWidget.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
@@ -224,7 +152,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\Subsystems\\WSS_RandomEventGenerator.h",
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\UI\\MyCyclingMenuWidget.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
@@ -232,7 +160,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\TP_PickUpComponent.cpp",
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\UI\\MyMasterWidget.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
@@ -240,7 +168,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\TP_PickUpComponent.h",
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\UnusedBoilerplate\\PondCharacter.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
@@ -248,7 +176,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\TP_WeaponComponent.cpp",
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\UnusedBoilerplate\\PondCharacter.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
@@ -256,7 +184,63 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\TP_WeaponComponent.h",
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\UnusedBoilerplate\\PondPlayerController.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\UnusedBoilerplate\\PondPlayerController.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\UnusedBoilerplate\\PondProjectile.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\UnusedBoilerplate\\PondProjectile.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\UnusedBoilerplate\\TP_PickUpComponent.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\UnusedBoilerplate\\TP_PickUpComponent.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\UnusedBoilerplate\\TP_WeaponComponent.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\UnusedBoilerplate\\TP_WeaponComponent.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
