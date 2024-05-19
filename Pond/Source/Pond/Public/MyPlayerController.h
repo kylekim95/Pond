@@ -14,6 +14,8 @@ class UInputMappingContext;
 class UInputAction;
 struct FInputActionValue;
 class UMyMasterWidget;
+class UWidgetComponent;
+class AMyPromptWidgetActor;
 
 UCLASS()
 class POND_API AMyPlayerController : public APlayerController
@@ -29,7 +31,9 @@ class POND_API AMyPlayerController : public APlayerController
 
 	UPROPERTY(EditAnywhere, Category=UI)
 	TSubclassOf<class UMyMasterWidget> MasterWidgetClass;
-	
+	UPROPERTY(EditAnywhere, Category=UI)
+	TSubclassOf<class UUserWidget> PromptWidgetClass;
+
 public:
 	AMyPlayerController();
 	virtual void BeginPlay() override;
@@ -41,4 +45,5 @@ private:
 	UMyMasterWidget* MasterWidget;
 	AActor* ActorOnHover;
 	TArray<UActorComponent*> InteractableComponents;
+	AMyPromptWidgetActor* PromptWidgetActor;
 };

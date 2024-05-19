@@ -6,6 +6,7 @@
 #include "Blueprint/WidgetLayoutLibrary.h"
 #include "Components/CanvasPanelSlot.h"
 #include "Animation/WidgetAnimation.h"
+#include "MyInteractable.h"
 
 UMyMasterWidget::UMyMasterWidget(const FObjectInitializer& ObjectInitializer)
     :UUserWidget(ObjectInitializer)

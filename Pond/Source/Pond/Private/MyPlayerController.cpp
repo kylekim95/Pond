@@ -9,6 +9,8 @@
 #include "Blueprint/WidgetLayoutLibrary.h"
 #include "Camera/CameraComponent.h"
 #include "MyInteractable.h"
+#include "Components/WidgetComponent.h"
+#include "UI/MyPromptWidgetActor.h"
 
 AMyPlayerController::AMyPlayerController()
 {
@@ -33,8 +35,17 @@ void AMyPlayerController::BeginPlay()
         }
     }
 
-    MasterWidget = CreateWidget<UMyMasterWidget>(this, MasterWidgetClass);
-    MasterWidget->AddToPlayerScreen();
+    if(IsValid(MasterWidgetClass))
+    {
+        MasterWidget = CreateWidget<UMyMasterWidget>(this, MasterWidgetClass);
+        MasterWidget->AddToPlayerScreen();
+    }
+
+    if(IsValid(PromptWidgetClass))
+    {
+        PromptWidgetActor = Cast<AMyPromptWidgetActor>(GetWorld()->SpawnActor(AMyPromptWidgetActor::StaticClass()));
+        PromptWidgetActor->ChangeWidgetClass(PromptWidgetClass);
+    }
 }
 
 void AMyPlayerController::OnLookAction(const FInputActionValue& Value)
@@ -56,13 +67,39 @@ void AMyPlayerController::OnLookAction(const FInputActionValue& Value)
     float TraceDistance = 10000.0f;
     GetWorld()->LineTraceSingleByChannel(HitResult, CameraPosition, CameraPosition + TraceDistance * TraceDirection, ECC_Visibility, CollisionQueryParams);
 
-    if(HitResult.GetActor() && HitResult.GetActor() != ActorOnHover)
+    if(HitResult.GetActor())
     {
-        ActorOnHover = HitResult.GetActor();
-        InteractableComponents = ActorOnHover->GetComponentsByInterface(UMyInteractable::StaticClass());
-        for(auto Elem : InteractableComponents)
+        InteractableComponents = HitResult.GetActor()->GetComponentsByInterface(UMyInteractable::StaticClass());
+        if(!InteractableComponents.IsEmpty())
         {
-            Cast<IMyInteractable>(Elem)->OnInteract(this);
+            if(ActorOnHover != HitResult.GetActor())
+            {
+                UE_LOG(LogTemp, Warning, TEXT("%s"), *(HitResult.GetActor()->GetName()));
+                ActorOnHover = HitResult.GetActor();
+                PromptWidgetActor->AttachToActor(
+                    ActorOnHover,
+                    FAttachmentTransformRules::SnapToTargetIncludingScale
+                );
+                PromptWidgetActor->PlayAnimationByName("FadeIn");
+            }
+        }
+        else
+        {
+            if(ActorOnHover != nullptr)
+            {
+                UE_LOG(LogTemp, Warning, TEXT("nullptr"));
+                ActorOnHover = nullptr;
+                PromptWidgetActor->PlayAnimationByName("FadeOut");
+            }
+        }
+    }
+    else
+    {
+        if(ActorOnHover != nullptr)
+        {
+            UE_LOG(LogTemp, Warning, TEXT("nullptr"));
+            ActorOnHover = nullptr;
+            PromptWidgetActor->PlayAnimationByName("FadeOut");
         }
     }
 }
