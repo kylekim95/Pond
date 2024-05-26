@@ -17,10 +17,17 @@ UMyMasterWidget::UMyMasterWidget(const FObjectInitializer& ObjectInitializer)
 void UMyMasterWidget::NativeConstruct()
 {
     Super::NativeConstruct();
+
+    CustomCursorWidget->SetCursorImg("Circle");
 }
 
 void UMyMasterWidget::UpdateCursorPosition(const FVector2D& Value)
 {
     UCanvasPanelSlot* CustomCursorWidgetCanvasPanelSlot = UWidgetLayoutLibrary::SlotAsCanvasSlot(CustomCursorWidget);
     CustomCursorWidgetCanvasPanelSlot->SetPosition(Value);
+}
+
+void UMyMasterWidget::ChangeCursor(FName CursorName)
+{
+    CustomCursorWidget->SetCursorImg(CursorName);
 }

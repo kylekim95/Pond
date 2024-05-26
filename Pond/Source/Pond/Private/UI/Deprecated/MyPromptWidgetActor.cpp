@@ -1,11 +1,11 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "UI/MyPromptWidgetActor.h"
+#include "UI/Deprecated/MyPromptWidgetActor.h"
 #include "Components/WidgetComponent.h"
 #include "Animation/WidgetAnimation.h"
 #include "MovieScene.h"
-#include "UI/AnimWidget.h"
+#include "UI/Deprecated/AnimWidget.h"
 
 // Sets default values
 AMyPromptWidgetActor::AMyPromptWidgetActor()

@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "UI/MyPromptWidget.h"
+#include "UI/Deprecated/MyPromptWidget.h"
 
 bool UMyPromptWidget::PlayAnimationByName(FName AnimName)
 {

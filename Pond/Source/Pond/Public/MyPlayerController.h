@@ -31,8 +31,6 @@ class POND_API AMyPlayerController : public APlayerController
 
 	UPROPERTY(EditAnywhere, Category=UI)
 	TSubclassOf<class UMyMasterWidget> MasterWidgetClass;
-	UPROPERTY(EditAnywhere, Category=UI)
-	TSubclassOf<class UUserWidget> PromptWidgetClass;
 
 public:
 	AMyPlayerController();
@@ -45,5 +43,4 @@ private:
 	UMyMasterWidget* MasterWidget;
 	AActor* ActorOnHover;
 	TArray<UActorComponent*> InteractableComponents;
-	AMyPromptWidgetActor* PromptWidgetActor;
 };

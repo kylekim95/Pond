@@ -11,6 +11,7 @@
  */
 
 class UImage;
+struct FCursor;
 
 UCLASS()
 class POND_API UMyCustomCursorWidget : public UUserWidget
@@ -20,12 +21,15 @@ class POND_API UMyCustomCursorWidget : public UUserWidget
 	UPROPERTY(EditAnywhere, meta = (BindWidget))
 	class UImage* CustomCursor;
 	UPROPERTY(EditAnywhere)
-	UTexture2D* CustomCursorImg;
+	class UDataTable* Cursors;
+
+	TMap<FName, FCursor*> CursorMap;
 
 public:
 	UMyCustomCursorWidget(const FObjectInitializer& ObjectInitializer);
 	virtual void NativeConstruct() override;
+	void SetCursorImg(FName CursorName);
 
 private:
-	FString DefaultCustomCursorImgRef = "/Script/Engine.Texture2D'/Game/MyContent/Blueprints/UI/Crosshair.Crosshair'";
+
 };

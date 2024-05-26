@@ -10,7 +10,6 @@
 #include "Camera/CameraComponent.h"
 #include "MyInteractable.h"
 #include "Components/WidgetComponent.h"
-#include "UI/MyPromptWidgetActor.h"
 
 AMyPlayerController::AMyPlayerController()
 {
@@ -40,19 +39,11 @@ void AMyPlayerController::BeginPlay()
         MasterWidget = CreateWidget<UMyMasterWidget>(this, MasterWidgetClass);
         MasterWidget->AddToPlayerScreen();
     }
-
-    if(IsValid(PromptWidgetClass))
-    {
-        PromptWidgetActor = Cast<AMyPromptWidgetActor>(GetWorld()->SpawnActor(AMyPromptWidgetActor::StaticClass()));
-        PromptWidgetActor->ChangeWidgetClass(PromptWidgetClass);
-    }
 }
 
 void AMyPlayerController::OnLookAction(const FInputActionValue& Value)
 {
     FVector2D _Value = Value.Get<FVector2D>();
-
-    // UE_LOG(LogTemp, Warning, TEXT("[%f, %f]"), _Value.X, _Value.Y);
 
     FVector2D CurrentMousePosition = UWidgetLayoutLibrary::GetMousePositionOnViewport(GetWorld());
     MasterWidget->UpdateCursorPosition(CurrentMousePosition);
@@ -74,22 +65,40 @@ void AMyPlayerController::OnLookAction(const FInputActionValue& Value)
         {
             if(ActorOnHover != HitResult.GetActor())
             {
-                UE_LOG(LogTemp, Warning, TEXT("%s"), *(HitResult.GetActor()->GetName()));
                 ActorOnHover = HitResult.GetActor();
-                PromptWidgetActor->AttachToActor(
-                    ActorOnHover,
-                    FAttachmentTransformRules::SnapToTargetIncludingScale
-                );
-                PromptWidgetActor->PlayAnimationByName("FadeIn");
+
+                FBox BoundingBox = ActorOnHover->GetComponentsBoundingBox();
+                FVector Center, Extents;
+                BoundingBox.GetCenterAndExtents(Center, Extents);
+                TArray<FVector> Points = {
+                    Center + FVector(Extents.X,     Extents.Y,      Extents.Z),
+                    Center + FVector(-Extents.X,    Extents.Y,      Extents.Z),
+                    Center + FVector(Extents.X,     -Extents.Y,     Extents.Z),
+                    Center + FVector(Extents.X,     Extents.Y,      -Extents.Z),
+                    Center + FVector(-Extents.X,    -Extents.Y,     Extents.Z),
+                    Center + FVector(-Extents.X,    Extents.Y,      -Extents.Z),
+                    Center + FVector(Extents.X,     -Extents.Y,     -Extents.Z),
+                    Center + FVector(-Extents.X,    -Extents.Y,     -Extents.Z)
+                };
+                FIntVector2 Min, Max(0, 0);
+                GetViewportSize(Min.X, Min.Y);
+                for(auto Element : Points){
+                    FVector2D Temp;
+                    ProjectWorldLocationToScreen(Element, Temp);
+                    if(Temp.X < Min.X) Min.X = Temp.X;
+                    if(Temp.X > Max.X) Max.X = Temp.X;
+                    if(Temp.Y < Min.Y) Min.Y = Temp.Y;
+                    if(Temp.Y > Min.Y) Max.Y = Temp.Y;
+                }
+                MasterWidget->ChangeCursor("Thunder");
             }
         }
         else
         {
             if(ActorOnHover != nullptr)
             {
-                UE_LOG(LogTemp, Warning, TEXT("nullptr"));
                 ActorOnHover = nullptr;
-                PromptWidgetActor->PlayAnimationByName("FadeOut");
+                MasterWidget->ChangeCursor("Circle");
             }
         }
     }
@@ -97,9 +106,8 @@ void AMyPlayerController::OnLookAction(const FInputActionValue& Value)
     {
         if(ActorOnHover != nullptr)
         {
-            UE_LOG(LogTemp, Warning, TEXT("nullptr"));
             ActorOnHover = nullptr;
-            PromptWidgetActor->PlayAnimationByName("FadeOut");
+            MasterWidget->ChangeCursor("Circle");
         }
     }
 }

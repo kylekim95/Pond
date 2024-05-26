@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
-#include "UI/AnimWidget.h"
+#include "UI/Deprecated/AnimWidget.h"
 #include "MyPromptWidget.generated.h"
 
 class UWidgetAnimation;
