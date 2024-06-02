@@ -113,3 +113,5 @@ Pond/Content/EuropeanBeech/Textures/TwoSided/Winter/T_EuropeanBeech_TwoSided_Win
 Pond/Content/EuropeanBeech/Textures/TwoSided/Winter/T_EuropeanBeech_TwoSided_Winter_Mask.uasset
 Pond/Content/EuropeanBeech/Textures/TwoSided/Winter/T_EuropeanBeech_TwoSided_Winter_Normal.uasset
 *.uasset
+Pond/Content/StarterContent/Materials/M_Ground_Grass.uasset
+Pond/Content/StarterContent/Props/Materials/M_Rock.uasset
