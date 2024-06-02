@@ -4,11 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
-#include "MyInteractable.generated.h"
+#include "AnimWidget.generated.h"
 
 // This class does not need to be modified.
 UINTERFACE(MinimalAPI)
-class UMyInteractable : public UInterface
+class UAnimWidget : public UInterface
 {
 	GENERATED_BODY()
 };
@@ -16,14 +16,11 @@ class UMyInteractable : public UInterface
 /**
  * 
  */
-class POND_API IMyInteractable
+class POND_API IAnimWidget
 {
 	GENERATED_BODY()
 
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
-	void OnInteract(AActor* Interactor);
-
-protected:
-	virtual void _OnInteract(AActor* Interactor) = 0;
+	virtual bool PlayAnimationByName(FName AnimName) = 0;
 };

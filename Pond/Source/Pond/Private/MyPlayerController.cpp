@@ -9,6 +9,7 @@
 #include "Blueprint/WidgetLayoutLibrary.h"
 #include "Camera/CameraComponent.h"
 #include "MyInteractable.h"
+#include "Components/WidgetComponent.h"
 
 AMyPlayerController::AMyPlayerController()
 {
@@ -33,15 +34,16 @@ void AMyPlayerController::BeginPlay()
         }
     }
 
-    MasterWidget = CreateWidget<UMyMasterWidget>(this, MasterWidgetClass);
-    MasterWidget->AddToPlayerScreen();
+    if(IsValid(MasterWidgetClass))
+    {
+        MasterWidget = CreateWidget<UMyMasterWidget>(this, MasterWidgetClass);
+        MasterWidget->AddToPlayerScreen();
+    }
 }
 
 void AMyPlayerController::OnLookAction(const FInputActionValue& Value)
 {
     FVector2D _Value = Value.Get<FVector2D>();
-
-    // UE_LOG(LogTemp, Warning, TEXT("[%f, %f]"), _Value.X, _Value.Y);
 
     FVector2D CurrentMousePosition = UWidgetLayoutLibrary::GetMousePositionOnViewport(GetWorld());
     MasterWidget->UpdateCursorPosition(CurrentMousePosition);
@@ -56,13 +58,56 @@ void AMyPlayerController::OnLookAction(const FInputActionValue& Value)
     float TraceDistance = 10000.0f;
     GetWorld()->LineTraceSingleByChannel(HitResult, CameraPosition, CameraPosition + TraceDistance * TraceDirection, ECC_Visibility, CollisionQueryParams);
 
-    if(HitResult.GetActor() && HitResult.GetActor() != ActorOnHover)
+    if(HitResult.GetActor())
     {
-        ActorOnHover = HitResult.GetActor();
-        InteractableComponents = ActorOnHover->GetComponentsByInterface(UMyInteractable::StaticClass());
-        for(auto Elem : InteractableComponents)
+        InteractableComponents = HitResult.GetActor()->GetComponentsByInterface(UMyInteractable::StaticClass());
+        if(!InteractableComponents.IsEmpty())
         {
-            Cast<IMyInteractable>(Elem)->OnInteract(this);
+            if(ActorOnHover != HitResult.GetActor())
+            {
+                ActorOnHover = HitResult.GetActor();
+
+                FBox BoundingBox = ActorOnHover->GetComponentsBoundingBox();
+                FVector Center, Extents;
+                BoundingBox.GetCenterAndExtents(Center, Extents);
+                TArray<FVector> Points = {
+                    Center + FVector(Extents.X,     Extents.Y,      Extents.Z),
+                    Center + FVector(-Extents.X,    Extents.Y,      Extents.Z),
+                    Center + FVector(Extents.X,     -Extents.Y,     Extents.Z),
+                    Center + FVector(Extents.X,     Extents.Y,      -Extents.Z),
+                    Center + FVector(-Extents.X,    -Extents.Y,     Extents.Z),
+                    Center + FVector(-Extents.X,    Extents.Y,      -Extents.Z),
+                    Center + FVector(Extents.X,     -Extents.Y,     -Extents.Z),
+                    Center + FVector(-Extents.X,    -Extents.Y,     -Extents.Z)
+                };
+                FIntVector2 Min, Max(0, 0);
+                GetViewportSize(Min.X, Min.Y);
+                for(auto Element : Points){
+                    FVector2D Temp;
+                    ProjectWorldLocationToScreen(Element, Temp);
+                    if(Temp.X < Min.X) Min.X = Temp.X;
+                    if(Temp.X > Max.X) Max.X = Temp.X;
+                    if(Temp.Y < Min.Y) Min.Y = Temp.Y;
+                    if(Temp.Y > Min.Y) Max.Y = Temp.Y;
+                }
+                MasterWidget->ChangeCursor("Thunder");
+            }
+        }
+        else
+        {
+            if(ActorOnHover != nullptr)
+            {
+                ActorOnHover = nullptr;
+                MasterWidget->ChangeCursor("Circle");
+            }
+        }
+    }
+    else
+    {
+        if(ActorOnHover != nullptr)
+        {
+            ActorOnHover = nullptr;
+            MasterWidget->ChangeCursor("Circle");
         }
     }
 }

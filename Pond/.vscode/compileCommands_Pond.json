@@ -72,6 +72,38 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\UI\\Deprecated\\AnimWidget.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Pond\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\UI\\Deprecated\\MyPromptWidget.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Pond\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\UI\\Deprecated\\MyPromptWidgetActor.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Pond\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\UI\\FCursor.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Pond\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
 		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\UI\\MyCustomCursorWidget.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
@@ -113,6 +145,38 @@
 	},
 	{
 		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\MyTestInteractableComponent.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Pond\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\UI\\Deprecated\\AnimWidget.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Pond\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\UI\\Deprecated\\MyPromptWidget.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Pond\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\UI\\Deprecated\\MyPromptWidgetActor.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Pond\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\UI\\FCursor.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Pond\\Pond.1.rsp"
