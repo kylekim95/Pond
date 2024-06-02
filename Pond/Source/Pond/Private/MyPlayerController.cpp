@@ -67,30 +67,32 @@ void AMyPlayerController::OnLookAction(const FInputActionValue& Value)
             {
                 ActorOnHover = HitResult.GetActor();
 
-                FBox BoundingBox = ActorOnHover->GetComponentsBoundingBox();
-                FVector Center, Extents;
-                BoundingBox.GetCenterAndExtents(Center, Extents);
-                TArray<FVector> Points = {
-                    Center + FVector(Extents.X,     Extents.Y,      Extents.Z),
-                    Center + FVector(-Extents.X,    Extents.Y,      Extents.Z),
-                    Center + FVector(Extents.X,     -Extents.Y,     Extents.Z),
-                    Center + FVector(Extents.X,     Extents.Y,      -Extents.Z),
-                    Center + FVector(-Extents.X,    -Extents.Y,     Extents.Z),
-                    Center + FVector(-Extents.X,    Extents.Y,      -Extents.Z),
-                    Center + FVector(Extents.X,     -Extents.Y,     -Extents.Z),
-                    Center + FVector(-Extents.X,    -Extents.Y,     -Extents.Z)
-                };
-                FIntVector2 Min, Max(0, 0);
-                GetViewportSize(Min.X, Min.Y);
-                for(auto Element : Points){
-                    FVector2D Temp;
-                    ProjectWorldLocationToScreen(Element, Temp);
-                    if(Temp.X < Min.X) Min.X = Temp.X;
-                    if(Temp.X > Max.X) Max.X = Temp.X;
-                    if(Temp.Y < Min.Y) Min.Y = Temp.Y;
-                    if(Temp.Y > Min.Y) Max.Y = Temp.Y;
-                }
-                MasterWidget->ChangeCursor("Thunder");
+                // FBox BoundingBox = ActorOnHover->GetComponentsBoundingBox();
+                // FVector Center, Extents;
+                // BoundingBox.GetCenterAndExtents(Center, Extents);
+                // TArray<FVector> Points = {
+                //     Center + FVector(Extents.X,     Extents.Y,      Extents.Z),
+                //     Center + FVector(-Extents.X,    Extents.Y,      Extents.Z),
+                //     Center + FVector(Extents.X,     -Extents.Y,     Extents.Z),
+                //     Center + FVector(Extents.X,     Extents.Y,      -Extents.Z),
+                //     Center + FVector(-Extents.X,    -Extents.Y,     Extents.Z),
+                //     Center + FVector(-Extents.X,    Extents.Y,      -Extents.Z),
+                //     Center + FVector(Extents.X,     -Extents.Y,     -Extents.Z),
+                //     Center + FVector(-Extents.X,    -Extents.Y,     -Extents.Z)
+                // };
+                // FIntVector2 Min, Max(0, 0);
+                // GetViewportSize(Min.X, Min.Y);
+                // for(auto Element : Points){
+                //     FVector2D Temp;
+                //     ProjectWorldLocationToScreen(Element, Temp);
+                //     if(Temp.X < Min.X) Min.X = Temp.X;
+                //     if(Temp.X > Max.X) Max.X = Temp.X;
+                //     if(Temp.Y < Min.Y) Min.Y = Temp.Y;
+                //     if(Temp.Y > Min.Y) Max.Y = Temp.Y;
+                // }
+
+
+                MasterWidget->ChangeCursor("Inspect");
             }
         }
         else
