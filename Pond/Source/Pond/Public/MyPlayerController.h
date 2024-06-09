@@ -4,6 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
+
+#include "Materials/MaterialParameterCollectionInstance.h"
+
 #include "MyPlayerController.generated.h"
 
 /**
@@ -29,12 +32,17 @@ class POND_API AMyPlayerController : public APlayerController
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Input, meta=(AllowPrivateAccess = "true"))
 	UInputAction* ScrollAction;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=MPC, meta=(AllowPrivateAccess = "true"))
+	UMaterialParameterCollection* MPC_OnHighlightAsset;
+	UMaterialParameterCollectionInstance* MPC_OnHighlight;
+
 	UPROPERTY(EditAnywhere, Category=UI)
 	TSubclassOf<class UMyMasterWidget> MasterWidgetClass;
 
 public:
 	AMyPlayerController();
 	virtual void BeginPlay() override;
+	virtual void Tick(float DeltaTime) override;
 
 private:
 	void OnLookAction(const FInputActionValue& Value);
@@ -43,4 +51,6 @@ private:
 	UMyMasterWidget* MasterWidget;
 	AActor* ActorOnHover;
 	TArray<UActorComponent*> InteractableComponents;
+
+	float TimerValue = 0.0f;
 };
