@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
+#include "http.h"
 #include "PondGameMode.generated.h"
 
 UCLASS(minimalapi)
@@ -14,6 +15,3 @@ class APondGameMode : public AGameModeBase
 public:
 	APondGameMode();
 };
-
-
-

@@ -40,6 +40,14 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\Incident.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Pond\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
 		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\MyInteractable.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
@@ -65,6 +73,22 @@
 	},
 	{
 		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\MyTestInteractableComponent.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Pond\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\Test\\IncidentTest_AAA.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Pond\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\Test\\IncidentTest_BBB.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Pond\\Pond.1.rsp"
@@ -120,6 +144,22 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\WSS_UserTracker.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Pond\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\Incident.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Pond\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
 		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\MyInteractable.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
@@ -145,6 +185,22 @@
 	},
 	{
 		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\MyTestInteractableComponent.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Pond\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\Test\\IncidentTest_AAA.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Pond\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\Test\\IncidentTest_BBB.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Pond\\Pond.1.rsp"
@@ -193,6 +249,14 @@
 	},
 	{
 		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\UI\\MyMasterWidget.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Pond\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\WSS_UserTracker.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Pond\\Pond.1.rsp"

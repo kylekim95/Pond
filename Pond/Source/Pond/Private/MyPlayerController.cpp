@@ -11,6 +11,8 @@
 #include "MyInteractable.h"
 #include "Components/WidgetComponent.h"
 
+#include "WSS_UserTracker.h"
+
 AMyPlayerController::AMyPlayerController()
 {
     
@@ -39,6 +41,11 @@ void AMyPlayerController::BeginPlay()
         MasterWidget = CreateWidget<UMyMasterWidget>(this, MasterWidgetClass);
         MasterWidget->AddToPlayerScreen();
     }
+
+    //TEST CODE
+    TArray<float> Temp = { 1, 0, 0, 0, 0 };
+    TArray<float> Influence = { 1, 1, 1, 1, 1 };
+    GetWorld()->GetSubsystem<UWSS_UserTracker>()->UpdateUserState(Temp, Influence);
 }
 
 void AMyPlayerController::OnLookAction(const FInputActionValue& Value)
