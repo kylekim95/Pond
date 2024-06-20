@@ -19,6 +19,9 @@ void UMyTestInteractableComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
+	
+	UStaticMeshComponent* Temp = Cast<UStaticMeshComponent>(GetOwner()->FindComponentByClass(UStaticMeshComponent::StaticClass()));
+	Temp->SetRenderCustomDepth(true);
 	// ...
 	
 }

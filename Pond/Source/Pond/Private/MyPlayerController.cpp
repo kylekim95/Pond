@@ -11,8 +11,6 @@
 #include "MyInteractable.h"
 #include "Components/WidgetComponent.h"
 
-#include "WSS_UserTracker.h"
-
 AMyPlayerController::AMyPlayerController()
 {
     
@@ -41,11 +39,13 @@ void AMyPlayerController::BeginPlay()
         MasterWidget = CreateWidget<UMyMasterWidget>(this, MasterWidgetClass);
         MasterWidget->AddToPlayerScreen();
     }
+}
 
-    //TEST CODE
-    TArray<float> Temp = { 1, 0, 0, 0, 0 };
-    TArray<float> Influence = { 1, 1, 1, 1, 1 };
-    GetWorld()->GetSubsystem<UWSS_UserTracker>()->UpdateUserState(Temp, Influence);
+void AMyPlayerController::Tick(float DeltaTime){
+    if(TimerValue > 0 && MPC_OnHighlight != nullptr){
+        TimerValue -= DeltaTime * 500.0f;
+        MPC_OnHighlight->SetScalarParameterValue("Timer", TimerValue);
+    }
 }
 
 void AMyPlayerController::OnLookAction(const FInputActionValue& Value)
@@ -53,6 +53,7 @@ void AMyPlayerController::OnLookAction(const FInputActionValue& Value)
     FVector2D _Value = Value.Get<FVector2D>();
 
     FVector2D CurrentMousePosition = UWidgetLayoutLibrary::GetMousePositionOnViewport(GetWorld());
+
     MasterWidget->UpdateCursorPosition(CurrentMousePosition);
 
     UCameraComponent* PlayerCamera = GetPawn()->GetComponentByClass<UCameraComponent>();
@@ -68,44 +69,35 @@ void AMyPlayerController::OnLookAction(const FInputActionValue& Value)
     if(HitResult.GetActor())
     {
         InteractableComponents = HitResult.GetActor()->GetComponentsByInterface(UMyInteractable::StaticClass());
+
         if(!InteractableComponents.IsEmpty())
         {
             if(ActorOnHover != HitResult.GetActor())
             {
+                if(ActorOnHover != nullptr)
+                    Cast<UStaticMeshComponent>(ActorOnHover->GetComponentByClass(UStaticMeshComponent::StaticClass()))->SetCustomDepthStencilValue(0);
                 ActorOnHover = HitResult.GetActor();
 
-                // FBox BoundingBox = ActorOnHover->GetComponentsBoundingBox();
-                // FVector Center, Extents;
-                // BoundingBox.GetCenterAndExtents(Center, Extents);
-                // TArray<FVector> Points = {
-                //     Center + FVector(Extents.X,     Extents.Y,      Extents.Z),
-                //     Center + FVector(-Extents.X,    Extents.Y,      Extents.Z),
-                //     Center + FVector(Extents.X,     -Extents.Y,     Extents.Z),
-                //     Center + FVector(Extents.X,     Extents.Y,      -Extents.Z),
-                //     Center + FVector(-Extents.X,    -Extents.Y,     Extents.Z),
-                //     Center + FVector(-Extents.X,    Extents.Y,      -Extents.Z),
-                //     Center + FVector(Extents.X,     -Extents.Y,     -Extents.Z),
-                //     Center + FVector(-Extents.X,    -Extents.Y,     -Extents.Z)
-                // };
-                // FIntVector2 Min, Max(0, 0);
-                // GetViewportSize(Min.X, Min.Y);
-                // for(auto Element : Points){
-                //     FVector2D Temp;
-                //     ProjectWorldLocationToScreen(Element, Temp);
-                //     if(Temp.X < Min.X) Min.X = Temp.X;
-                //     if(Temp.X > Max.X) Max.X = Temp.X;
-                //     if(Temp.Y < Min.Y) Min.Y = Temp.Y;
-                //     if(Temp.Y > Min.Y) Max.Y = Temp.Y;
-                // }
-
-
                 MasterWidget->ChangeCursor("Inspect");
+                Cast<UStaticMeshComponent>(ActorOnHover->GetComponentByClass(UStaticMeshComponent::StaticClass()))->SetCustomDepthStencilValue(1);
+                
+                if(MPC_OnHighlightAsset){
+                    MPC_OnHighlight = GetWorld()->GetParameterCollectionInstance(MPC_OnHighlightAsset);
+                    if(MPC_OnHighlight){
+                        FVector2D Screen;
+                        ProjectWorldLocationToScreen(ActorOnHover->GetActorLocation(), Screen);
+                        UE_LOG(LogTemp, Warning, TEXT("%f, %f"), Screen.X, Screen.Y);
+                        MPC_OnHighlight->SetVectorParameterValue("StartScreenPosition", FVector4(Screen.X, Screen.Y, 0, 0));
+                        TimerValue = 500.0f;
+                    }
+                }
             }
         }
         else
         {
             if(ActorOnHover != nullptr)
             {
+                Cast<UStaticMeshComponent>(ActorOnHover->GetComponentByClass(UStaticMeshComponent::StaticClass()))->SetCustomDepthStencilValue(0);
                 ActorOnHover = nullptr;
                 MasterWidget->ChangeCursor("Circle");
             }
@@ -115,6 +107,7 @@ void AMyPlayerController::OnLookAction(const FInputActionValue& Value)
     {
         if(ActorOnHover != nullptr)
         {
+            Cast<UStaticMeshComponent>(ActorOnHover->GetComponentByClass(UStaticMeshComponent::StaticClass()))->SetCustomDepthStencilValue(0);
             ActorOnHover = nullptr;
             MasterWidget->ChangeCursor("Circle");
         }
