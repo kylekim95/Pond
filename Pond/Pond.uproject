@@ -12,7 +12,8 @@
 				"Engine",
 				"CoreUObject",
 				"UMG",
-				"AIModule"
+				"AIModule",
+				"Blutility"
 			]
 		}
 	],
@@ -26,6 +27,14 @@
 		},
 		{
 			"Name": "Water",
+			"Enabled": true
+		},
+		{
+			"Name": "SunPosition",
+			"Enabled": true
+		},
+		{
+			"Name": "Volumetrics",
 			"Enabled": true
 		}
 	]

@@ -9,6 +9,7 @@
 class UCameraComponent;
 struct FInputActionValue;
 class UInputAction;
+class UCapsuleComponent;
 
 UCLASS()
 class POND_API AMyPawn : public APawn
@@ -17,6 +18,8 @@ class POND_API AMyPawn : public APawn
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* CameraComponent;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	UCapsuleComponent* CapsuleComponent;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Input, meta=(AllowPrivateAccess = "true"))
 	UInputAction* LookAction;

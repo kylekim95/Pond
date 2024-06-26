@@ -40,7 +40,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\Incident.cpp",
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\EditorUtility\\EUW_IncidentsSpawnableLocation.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
@@ -80,46 +80,6 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\Test\\IncidentTest_AAA.cpp",
-		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
-			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
-		],
-		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
-	},
-	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\Test\\IncidentTest_BBB.cpp",
-		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
-			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
-		],
-		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
-	},
-	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\UI\\Deprecated\\AnimWidget.cpp",
-		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
-			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
-		],
-		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
-	},
-	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\UI\\Deprecated\\MyPromptWidget.cpp",
-		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
-			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
-		],
-		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
-	},
-	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\UI\\Deprecated\\MyPromptWidgetActor.cpp",
-		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
-			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
-		],
-		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
-	},
-	{
 		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\UI\\FCursor.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
@@ -144,7 +104,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\WSS_UserTracker.cpp",
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\WorldSubsystems\\TWS_Time.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
@@ -152,7 +112,31 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\Incident.h",
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\WorldSubsystems\\WS_IncidentSpawnLocations.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\WorldSubsystems\\WS_IncidentSpawner.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Private\\WorldSubsystems\\WS_Network.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\EditorUtility\\EUW_IncidentsSpawnableLocation.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
@@ -192,46 +176,6 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\Test\\IncidentTest_AAA.h",
-		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
-			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
-		],
-		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
-	},
-	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\Test\\IncidentTest_BBB.h",
-		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
-			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
-		],
-		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
-	},
-	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\UI\\Deprecated\\AnimWidget.h",
-		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
-			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
-		],
-		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
-	},
-	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\UI\\Deprecated\\MyPromptWidget.h",
-		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
-			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
-		],
-		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
-	},
-	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\UI\\Deprecated\\MyPromptWidgetActor.h",
-		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
-			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
-		],
-		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
-	},
-	{
 		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\UI\\FCursor.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
@@ -256,7 +200,31 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
 	},
 	{
-		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\WSS_UserTracker.h",
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\WorldSubsystems\\TWS_Time.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\WorldSubsystems\\WS_IncidentSpawnLocations.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\WorldSubsystems\\WS_IncidentSpawner.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Dev\\UnrealProjects\\Pond\\Pond\\Source\\Pond\\Public\\WorldSubsystems\\WS_Network.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Dev\\UnrealProjects\\Pond\\Pond\\.vscode\\compileCommands_Default\\Pond.1.rsp"

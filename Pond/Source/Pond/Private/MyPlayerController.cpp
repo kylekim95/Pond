@@ -57,7 +57,7 @@ void AMyPlayerController::OnLookAction(const FInputActionValue& Value)
     MasterWidget->UpdateCursorPosition(CurrentMousePosition);
 
     UCameraComponent* PlayerCamera = GetPawn()->GetComponentByClass<UCameraComponent>();
-    FVector CameraPosition = GetPawn()->GetActorLocation();
+    FVector CameraPosition = GetPawn()->GetActorLocation() + PlayerCamera->GetRelativeLocation();
     FVector MousePosition;
     FVector TraceDirection;
     DeprojectMousePositionToWorld(MousePosition, TraceDirection);
