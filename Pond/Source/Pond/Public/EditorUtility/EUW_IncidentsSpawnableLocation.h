@@ -19,7 +19,7 @@ private:
 };
 
 USTRUCT(BlueprintType)
-struct IncidentsSpawnLocationData : FTableRowBase
+struct FIncidentsSpawnLocationData : public FTableRowBase
 {
 	GENERATED_BODY()
 	

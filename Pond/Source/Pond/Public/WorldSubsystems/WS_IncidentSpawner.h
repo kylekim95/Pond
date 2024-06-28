@@ -28,15 +28,22 @@ public:
 	virtual void PostInitialize() override;
 	virtual void OnWorldBeginPlay(UWorld& InWorld) override;
 
+	void UpdateUserState(TArray<float> Target, TArray<float> Influence);
+
 private:
 	UDataTable* IncidentsRawDataTable;
 	UWS_Network* WS_Network;
 	TMap<FString, FIncidentsSpawnData> IncidentsSpawnDataMap;
+	TArray<float> UserState;
+	TArray<float> PrevUserState;
+    TArray<TTuple<FString, double>> Candidates;
 
 	FHttpRequestCompleteDelegate OnGetIncidentsDelegate;
 	void OnGetIncidents(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bConnected);
 	FHttpRequestCompleteDelegate OnNewIncidentDelegate;
 	void OnNewIncident(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bConnected);
+	FHttpRequestCompleteDelegate OnClosestNeighborDelegate;
+	void OnClosestNeighbor(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bConnected);
 };
 
 //Raw data from Incident creator
@@ -67,4 +74,14 @@ struct FNewIncident
 	FString name;
 	UPROPERTY(EditAnywhere)
 	FString description;
+};
+
+//HTTP 'closest_neighbor' POST request JSON struct
+USTRUCT(BlueprintType)
+struct FClosestNeighbor
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere)
+	TArray<float> user_state;
 };
