@@ -97,7 +97,6 @@ void UWS_IncidentSpawner::UpdateUserState(TArray<float> Target, TArray<float> In
     for(int i = 0; i < UserState.Num(); i++){
         UserState[i] = FMath::Lerp(UserState[i], 1 - Target[i], Influence[i]);
     }
-    float temp = CosineSimilarity(UserState, PrevUserState);
 
     FClosestNeighbor ClosestNeighbor;
     ClosestNeighbor.user_state = UserState;

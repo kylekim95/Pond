@@ -1,0 +1,17 @@
+{
+	"rows": [
+		{
+			"id": "ChangedHelloWorld",
+			"position":
+			{
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"tags": [
+				"Foo",
+				"Bar"
+			]
+		}
+	]
+}
