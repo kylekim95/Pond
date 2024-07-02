@@ -37,6 +37,7 @@ void UWS_IncidentSpawner::PostInitialize()
     Super::PostInitialize();
 
     WS_Network = GetWorld()->GetSubsystem<UWS_Network>();
+    WS_SpawnableLocations = GetWorld()->GetSubsystem<UWS_SpawnableLocations>();
 }
 
 void UWS_IncidentSpawner::OnWorldBeginPlay(UWorld& InWorld)
@@ -46,6 +47,9 @@ void UWS_IncidentSpawner::OnWorldBeginPlay(UWorld& InWorld)
     //Synchronize Server DB & Client DataTable
     WS_Network->SendHttpGet("/get_incidents", OnGetIncidentsDelegate);
     // UpdateUserState({1.0f, 0.0f, 0.0f, 0.0f, 0.0f}, {1.0f, 0.0f, 0.0f, 0.0f, 0.0f});
+    for(auto Elem : WS_SpawnableLocations->Query("Water")){
+        UE_LOG(LogTemp, Warning, TEXT("%s"), *(Elem->id));
+    }
 }
 
 void UWS_IncidentSpawner::OnGetIncidents(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bConnected)

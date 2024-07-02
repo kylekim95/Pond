@@ -36,6 +36,22 @@
 		{
 			"Name": "Volumetrics",
 			"Enabled": true
+		},
+		{
+			"Name": "ScriptableToolsEditorMode",
+			"Enabled": true
+		},
+		{
+			"Name": "ScriptableToolsFramework",
+			"Enabled": true
+		},
+		{
+			"Name": "GeometryScripting",
+			"Enabled": true
+		},
+		{
+			"Name": "PCGGeometryScriptInterop",
+			"Enabled": true
 		}
 	]
 }

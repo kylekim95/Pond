@@ -6,12 +6,13 @@ void UMyJsonFileUtilities::LoadJsonFromFilePath(TArray<FSpawnableLocationDescrip
 {
     FString JsonString;
     FFileHelper::LoadFileToString(JsonString, *(FPaths::ProjectDir() + "EUW/" + FilePath));
-    if(JsonString.IsEmpty()){
-        UE_LOG(LogTemp, Warning, TEXT("UMyJsonFileUtilities::LoadJsonFromFilePath: Invalid FilePath input"));
-    }
     TSharedPtr<FJsonObject> JsonObject;
     TSharedRef<TJsonReader<>> Reader = TJsonReaderFactory<>::Create(JsonString);
     FJsonSerializer::Deserialize(Reader, JsonObject);
+    if(!JsonObject.IsValid()){
+        UE_LOG(LogTemp, Warning, TEXT("UMyJsonFileUtilities::LoadJsonFromFilePath: Invalid FilePath input"));
+        return;
+    }
     for(auto Row : JsonObject->GetArrayField("rows")){
         FSpawnableLocationDescription SpawnableLocationDescription;
         SpawnableLocationDescription.id = Row->AsObject()->GetStringField("id");

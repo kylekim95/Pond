@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Subsystems/WorldSubsystem.h"
 #include "WorldSubsystems/WS_Network.h"
+#include "WorldSubsystems/WS_SpawnableLocations.h"
 #include "WS_IncidentSpawner.generated.h"
 
 //Processed data for ease of spawn
@@ -33,6 +34,7 @@ public:
 private:
 	UDataTable* IncidentsRawDataTable;
 	UWS_Network* WS_Network;
+	UWS_SpawnableLocations* WS_SpawnableLocations;
 	TMap<FString, FIncidentsSpawnData> IncidentsSpawnDataMap;
 	TArray<float> UserState;
 	TArray<float> PrevUserState;

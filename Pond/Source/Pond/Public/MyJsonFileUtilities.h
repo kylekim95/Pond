@@ -4,24 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
+#include "WorldSubsystems/WS_SpawnableLocations.h"
 #include "MyJsonFileUtilities.generated.h"
 
 /**
  * 
  */
-
-USTRUCT(BlueprintType)
-struct FSpawnableLocationDescription
-{
-	GENERATED_USTRUCT_BODY()
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FString id;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FVector position;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<FString> tags;
-};
 
 UCLASS()
 class POND_API UMyJsonFileUtilities : public UBlueprintFunctionLibrary
