@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "WorldSubsystems/WS_SpawnableLocations.h"
+#include "WorldSubsystems/WS_Position.h"
 #include "MyJsonFileUtilities.generated.h"
 
 /**

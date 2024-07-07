@@ -1,5 +1,4 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
@@ -7,32 +6,28 @@
 #include "http.h"
 #include "WS_Network.generated.h"
 
-/**
- * 
- */
-
 UCLASS()
 class POND_API UWS_Network : public UWorldSubsystem
 {
 	GENERATED_BODY()
-	
+
 public:
 	UWS_Network();
 	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
 	virtual void Deinitialize() override;
 
-	template<typename T>
-	void SendHttpPost(
+	void Get(
 		FString Url,
-		T& RequestBodyStruct,
 		FHttpRequestCompleteDelegate& Callback
 	);
-	void SendHttpGet(
+	template <typename T>
+	void Post(
 		FString Url,
-		FHttpRequestCompleteDelegate& Callback
+		FHttpRequestCompleteDelegate& Callback,
+		T& RequestBody
 	);
 
 private:
 	FHttpModule* Http;
-	const FString ServerBaseUrl = "http://localhost:8080";
+	const FString BaseUrl = "http://localhost:8080";
 };

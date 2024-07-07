@@ -1,19 +1,14 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
 #include "Subsystems/WorldSubsystem.h"
-#include "WS_SpawnableLocations.generated.h"
-
-/**
- * 
- */
+#include "WS_Position.generated.h"
 
 USTRUCT(BlueprintType)
 struct FSpawnableLocationDescription
 {
-	GENERATED_USTRUCT_BODY()
+	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString id;
@@ -24,23 +19,20 @@ struct FSpawnableLocationDescription
 };
 
 UCLASS()
-class POND_API UWS_SpawnableLocations : public UWorldSubsystem
+class POND_API UWS_Position : public UWorldSubsystem
 {
 	GENERATED_BODY()
-
+	
 public:
-	UWS_SpawnableLocations();
+	UWS_Position();
 	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
 	virtual void Deinitialize() override;
-	TSet<FSpawnableLocationDescription*> Query(FString QueryStr);
+	//QueryStr example: "( ( Occluded & Water ) | Hidden )"
+	void Query(TSet<FVector>& Output, FString QueryStr);
 
 private:
 	const FString FilePath = "HelloWorld.json";
-
 	TArray<FSpawnableLocationDescription> SpawnableLocations;
-	TMap<unsigned long long, TSet<FSpawnableLocationDescription*>> SetMap;
-	TMap<FString, unsigned long long> MemHash;
-
-	unsigned long long HashFunction(FString str);
-	const unsigned long long Capacity = 1000;
+	TMap<FString, FVector> IdToVector;
+	TMap<FString, TSet<FString>> LocationsByTag;
 };
