@@ -10,15 +10,10 @@ UCLASS()
 class POND_API AIncident : public AActor
 {
 	GENERATED_BODY()
-
+	
 public:	
 	// Sets default values for this actor's properties
 	AIncident();
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, meta=(AllowPrivateAccess = "true"))
-	FString Title;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, meta=(AllowPrivateAccess = "true"))
-	FString Descriptor;
 
 protected:
 	// Called when the game starts or when spawned
@@ -27,4 +22,5 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
 };

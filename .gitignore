@@ -1,3 +1,6 @@
+/Pond/LocalDerivedDataCache
+/Pond/.vscode
+
 # Visual Studio 2015 user specific files
 .vs/
 
@@ -391,3 +394,9 @@ Pond/Content/MSPresets/M_MS_Decal_Material_VT/M_MS_Decal_Material_VT.uasset
 Pond/Content/MSPresets/M_MS_Decal_Material/MF_QuixelDecalPOM.uasset
 Pond/Content/MSPresets/M_MS_Decal_Material/M_MS_Decal_Material.uasset
 Pond/Content/MSPresets/M_MS_Billboard_Material/M_MS_Billboard_Material.uasset
+Pond/.vscode/c_cpp_properties.json
+Pond/.vscode/compileCommands_Default.json
+Pond/.vscode/compileCommands_Pond.json
+Pond/.vscode/c_cpp_properties.json
+Pond/.vscode/compileCommands_Default.json
+Pond/.vscode/compileCommands_Pond.json

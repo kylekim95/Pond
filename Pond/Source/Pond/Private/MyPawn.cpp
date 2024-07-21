@@ -7,6 +7,7 @@
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
 #include "Blueprint/WidgetLayoutLibrary.h"
+#include "Components/CapsuleComponent.h"
 
 // Sets default values
 AMyPawn::AMyPawn()
@@ -14,9 +15,12 @@ AMyPawn::AMyPawn()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	CapsuleComponent = CreateDefaultSubobject<UCapsuleComponent>(TEXT("CapsuleComponent"));
+	CapsuleComponent->SetupAttachment(GetRootComponent());
+
 	CameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraComponent"));
-	CameraComponent->SetupAttachment(GetRootComponent());
-	CameraComponent->SetRelativeLocation(FVector(-10.0f, 0.0f, 60.0f));
+	CameraComponent->SetupAttachment(CapsuleComponent);
+	CameraComponent->SetRelativeLocation(FVector(0.0f, 0.0f, 100.0f));
 }
 
 // Called when the game starts or when spawned
@@ -28,6 +32,9 @@ void AMyPawn::BeginPlay()
 	{
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AMyPawn::OnLookAction);
 	}
+
+	FRotator CurrentCameraRotation = CameraComponent->GetRelativeRotation();
+	TargetCameraRotation = CurrentCameraRotation;
 }
 
 // Called every frame
@@ -77,9 +84,9 @@ void AMyPawn::OnLookAction(const FInputActionValue& Value)
 	else
 		Direction.Y = 0;
 
+	TargetCameraRotation.Pitch = Direction.Y * 20.0f;
+	TargetCameraRotation.Yaw = Direction.X * 20.0f;
 	FRotator CurrentCameraRotation = CameraComponent->GetRelativeRotation();
-	TargetCameraRotation.Pitch = Direction.Y * 10.0f;
-	TargetCameraRotation.Yaw = Direction.X * 10.0f;
-	if(TargetCameraRotation.Pitch == 0.0f) TargetCameraRotation.Pitch = CurrentCameraRotation.Pitch;
-	if(TargetCameraRotation.Yaw == 0.0f) TargetCameraRotation.Yaw = CurrentCameraRotation.Yaw;
+	if(Direction.Y == 0) TargetCameraRotation.Pitch = CurrentCameraRotation.Pitch;
+	if(Direction.X == 0) TargetCameraRotation.Yaw = CurrentCameraRotation.Yaw;
 }
