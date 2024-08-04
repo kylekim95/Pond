@@ -1,7 +1,5 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "WorldSubsystems/WS_Spawner.h"
-#include "WorldSubsystems/WS_UserPreference.h"
-#include "WorldSubsystems/WS_Position.h"
 
 UWS_Spawner::UWS_Spawner()
 {
@@ -22,6 +20,7 @@ void UWS_Spawner::Initialize(FSubsystemCollectionBase& Collection)
     for(int i = 0; i < Rows.Num(); i++){
         AtoSMap.Add(RowNames[i].ToString(), Rows[i]->ActorToSpawn);
         TagsMap.Add(RowNames[i].ToString(), TArray<FString>());
+        LastSpawned_Timestamp.Add(RowNames[i].ToString(), FDateTime::MaxValue());
         for(int j = 0; j < Rows[i]->SpawnablePositionTags.Num(); j++){
             TagsMap[RowNames[i].ToString()].Add(Rows[i]->SpawnablePositionTags[j]);
         }
@@ -33,19 +32,27 @@ void UWS_Spawner::Deinitialize()
     Super::Deinitialize();
 }
 
+void UWS_Spawner::PostInitialize()
+{
+    Super::PostInitialize();
+    
+    WS_UserPreference = GetWorld()->GetSubsystem<UWS_UserPreference>();
+    WS_Position = GetWorld()->GetSubsystem<UWS_Position>();
+
+    UTWS_Time* TWS_Time = GetWorld()->GetSubsystem<UTWS_Time>();
+    if(TWS_Time && WS_UserPreference && WS_Position)
+        TWS_Time->NotifyTimeDelegate.AddDynamic(this, &UWS_Spawner::OnNotifyTime);
+    else
+        UE_LOG(LogTemp, Warning, TEXT("WS_Spawner::Required WorldSubsystems not initialized"));
+}
+
 void UWS_Spawner::OnWorldBeginPlay(UWorld& InWorld)
 {
     Super::OnWorldBeginPlay(InWorld);
+}
 
-    UWS_Position* WS_Position = GetWorld()->GetSubsystem<UWS_Position>();
-    TSet<FVector> PositionCandidates;
-    WS_Position->Query(PositionCandidates, "( " + TagsMap["INCIDENT3"][0] + " )");
-
-    FActorSpawnParameters ActorSpawnParameters;
-    AActor* SpawnedDeer = GetWorld()->SpawnActor<AActor>(
-        AtoSMap["INCIDENT3"],
-        PositionCandidates.Array()[0],
-        FRotator::ZeroRotator,
-        ActorSpawnParameters
-    );
+void UWS_Spawner::OnNotifyTime(float Time)
+{
+    TArray<FString> PreferredIncidents = WS_UserPreference->PreferredIncidents;
+    
 }

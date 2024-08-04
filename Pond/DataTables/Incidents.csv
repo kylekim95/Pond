@@ -2,4 +2,3 @@
 INCIDENT0,cthulhu,None,22,2,"(""Occluded"")"
 INCIDENT1,birds singing,None,20,23,"(""Occluded"")"
 INCIDENT2,fish jump,None,0,23.99,"(""Occluded"", ""Water"")"
-INCIDENT3,deer walking,/Script/Engine.BlueprintGeneratedClass'/Game/MyContent/Blueprints/BP_Incident_Gorani.BP_Incident_Gorani_C',0,23.99,"(""Hidden"")"

@@ -4,6 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "Subsystems/WorldSubsystem.h"
+#include "WorldSubsystems/WS_UserPreference.h"
+#include "WorldSubsystems/WS_Position.h"
+#include "WorldSubsystems/TWS_Time.h"
 #include "WS_Spawner.generated.h"
 
 USTRUCT(BlueprintType)
@@ -28,10 +31,18 @@ public:
 	UWS_Spawner();
 	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
 	virtual void Deinitialize() override;
+	virtual void PostInitialize();
 	void OnWorldBeginPlay(UWorld& InWorld) override;
+
+	UFUNCTION()
+	void OnNotifyTime(float Time);
 
 private:
 	UDataTable* DT_Incidents_Type;
 	TMap<FString, TSubclassOf<AActor>> AtoSMap;
 	TMap<FString, TArray<FString>> TagsMap;
+	TMap<FString, FDateTime> LastSpawned_Timestamp;
+
+	UWS_UserPreference* WS_UserPreference;
+	UWS_Position* WS_Position;
 };
