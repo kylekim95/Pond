@@ -1,5 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "WorldSubsystems/WS_Spawner.h"
+#include "Incident.h"
 
 UWS_Spawner::UWS_Spawner()
 {
@@ -20,7 +21,7 @@ void UWS_Spawner::Initialize(FSubsystemCollectionBase& Collection)
     for(int i = 0; i < Rows.Num(); i++){
         AtoSMap.Add(RowNames[i].ToString(), Rows[i]->ActorToSpawn);
         TagsMap.Add(RowNames[i].ToString(), TArray<FString>());
-        LastSpawned_Timestamp.Add(RowNames[i].ToString(), FDateTime::MaxValue());
+        LastSpawned_Timestamp.Add(RowNames[i].ToString(), FDateTime::MinValue());
         for(int j = 0; j < Rows[i]->SpawnablePositionTags.Num(); j++){
             TagsMap[RowNames[i].ToString()].Add(Rows[i]->SpawnablePositionTags[j]);
         }
@@ -55,4 +56,37 @@ void UWS_Spawner::OnNotifyTime(float Time)
 {
     TArray<FString> PreferredIncidents = WS_UserPreference->PreferredIncidents;
     
+    if(PreferredIncidents.Num() > 0){
+        int MostPreferredIndex = 0;
+        FTimespan Temp = FDateTime::Now() - LastSpawned_Timestamp[PreferredIncidents[MostPreferredIndex]];
+        if(Temp.GetTotalSeconds() > 30.0f){
+            TArray<FString> Tags = TagsMap[PreferredIncidents[MostPreferredIndex]];
+            FString Total = "";
+            for(int i = 0; i < Tags.Num(); i++){
+                Total += "( " + Tags[i];
+                if(i != Tags.Num() - 1){
+                    Total += " & ";
+                }
+            }
+            Total += " )";
+
+            TSet<FVector> Output;
+            WS_Position->Query(Output, Total);
+
+            FRotator Rotator;
+            GetWorld()->SpawnActor<AIncident>(
+                AtoSMap[PreferredIncidents[MostPreferredIndex]], 
+                Output.Array()[0],
+                Rotator
+            );
+
+            LastSpawned_Timestamp[PreferredIncidents[MostPreferredIndex]] = FDateTime::Now();
+        }
+        else{
+            MostPreferredIndex++;
+            if(MostPreferredIndex >= PreferredIncidents.Num()){
+                UE_LOG(LogTemp, Warning, TEXT("Nothing to spawn"));
+            }
+        }
+    }
 }

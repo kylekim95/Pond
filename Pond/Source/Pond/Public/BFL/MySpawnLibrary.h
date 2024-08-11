@@ -5,9 +5,6 @@
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "MySpawnLibrary.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class POND_API UMySpawnLibrary : public UBlueprintFunctionLibrary
 {
@@ -15,6 +12,4 @@ class POND_API UMySpawnLibrary : public UBlueprintFunctionLibrary
 	
 	UFUNCTION(BlueprintCallable, Category="Spawner", meta = (WorldContext = "WorldContextObject"))
 	static bool WithinPlayerFOV(FVector TargetPosition, FVector PlayerPosition, FVector PlayerForwardVector, UObject* WorldContextObject);
-	UFUNCTION(BlueprintCallable, Category="Spawner", meta = (WorldContext = "WorldContextObject"))
-	static void TessellatePath(USplineComponent* Path, UObject* WorldContextObject);
 };

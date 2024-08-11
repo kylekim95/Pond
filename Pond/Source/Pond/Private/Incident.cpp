@@ -17,7 +17,7 @@ void AIncident::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if(bCont && !ActionSequence.IsEmpty()){
+	if(bCont && !(ActionSequence->IsEmpty())){
 		if(Promise){
 			delete Promise;
 			Promise = nullptr;
@@ -31,7 +31,7 @@ void AIncident::Tick(float DeltaTime)
 		
 		FActionDelegate NextAction;
 		FString Params;
-		ActionSequence.Dequeue(NextAction);
+		ActionSequence->Dequeue(NextAction);
 		ActionParams.Dequeue(Params);
 		NextAction.ExecuteIfBound(Params);
 	}
@@ -39,7 +39,10 @@ void AIncident::Tick(float DeltaTime)
 
 void AIncident::EnqueueAction(FActionDelegate ActionDelegate, FString Params)
 {
-	ActionSequence.Enqueue(ActionDelegate);
+	if(ActionSequence == nullptr){
+		ActionSequence = new TQueue<FActionDelegate>();
+	}
+	ActionSequence->Enqueue(ActionDelegate);
 	ActionParams.Enqueue(Params);
 }
 void AIncident::SetPromiseValue(ETerminationType TerminationType, int Value)

@@ -40,7 +40,7 @@ public:
 private:
 	TPromise<TResult<int>>* Promise;
 	bool bCont = true;
-	TQueue<FActionDelegate> ActionSequence;
+	TQueue<FActionDelegate>* ActionSequence;
 	TQueue<FString> ActionParams;
 
 public:
