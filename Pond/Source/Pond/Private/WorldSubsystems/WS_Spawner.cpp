@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "WorldSubsystems/WS_Spawner.h"
 #include "Incident.h"
+#include "Kismet/KismetMathLibrary.h"
 
 UWS_Spawner::UWS_Spawner()
 {
@@ -72,11 +73,12 @@ void UWS_Spawner::OnNotifyTime(float Time)
 
             TSet<FVector> Output;
             WS_Position->Query(Output, Total);
+            int RandomIndex = UKismetMathLibrary::RandomIntegerInRange(0, Output.Num() - 1);
 
             FRotator Rotator;
             GetWorld()->SpawnActor<AIncident>(
                 AtoSMap[PreferredIncidents[MostPreferredIndex]], 
-                Output.Array()[0],
+                Output.Array()[RandomIndex],
                 Rotator
             );
 

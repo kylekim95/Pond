@@ -11,13 +11,14 @@ UENUM()
 enum class ELatentActionInputPins : uint8
 {
 	Start,
-	Cancel
+	Interrupt
 };
 UENUM()
 enum class ELatentActionOutputPins : uint8
 {
 	OnStarted,
-	OnCancelled,
+	OnUpdated,
+	OnInterrupted,
 	OnCompleted
 };
 UCLASS()
@@ -36,12 +37,22 @@ public:
 		FLatentActionInfo LatentInfo,
 		ELatentActionInputPins InputPins,
 		ELatentActionOutputPins& OutputPins,
-		const TArray<FVector>& Path,
-		UPARAM(ref) AActor* Actor,
-		TArray<FVector>& BoundaryNormals,
-		TArray<FVector>& PointsOnBoundary,
-		float& CurrentVelocity
+		UPARAM(ref) TArray<FVector>& PathPoints,
+		AActor* ActorToMove,
+		UPARAM(ref) bool& Grounded,
+		float& Velocity
 	);
+};
+USTRUCT()
+struct FBoundarySphere
+{
+	GENERATED_BODY()
+	FVector Center;
+	float Radius;
+	FVector EntranceLocation;
+	FVector EntranceNormal;
+	FVector ExitLocation;
+	FVector ExitNormal;
 };
 
 class FLatentActorMovement : public FPendingLatentAction
@@ -49,49 +60,42 @@ class FLatentActorMovement : public FPendingLatentAction
 public:
 	//FLOW CTRL BOOLEANS
 	bool bInit = true;
-	bool bCancel = false;
-
-	//REQUIRED
+	bool bInterrupt = false;
+	//LATENT ACTION REQUIRED
+	UWorld* World;
 	FLatentActionInfo LatentActionInfo;
 	ELatentActionOutputPins& Output;
+	
+	TArray<FVector>& PathPoints;
+	AActor* ActorToMove;
+	bool& Grounded;
 
-	//WORLD
-	UWorld* World;
+	int TargetPointIndex = 0;
+	float& Velocity;
 
-	//INPUT
-	const TArray<FVector>& Path;
-	AActor* Actor;
+	bool bWithinBoundary = false;
+	TArray<FBoundarySphere> BoundarySpheres;
 
-	//VARS
-	TArray<FVector>& BoundaryNormals;
-	TArray<FVector>& PointsOnBoundary;
-	float TurnDistance;
-	int TargetPointIndex;
-	float& CurrentVelocity;
-	float MaxVelocity;
-	float AngularVelocity;
+	bool bStartTargetInit = true;
+	
+	bool Landing = false;
 
 	FLatentActorMovement(
-		FLatentActionInfo& LatentInfo, ELatentActionOutputPins& OutputPins, 
 		UWorld* _World,
-		const TArray<FVector>& _Path, AActor* _Actor,
-		TArray<FVector>& _BoundaryNormals, TArray<FVector>& _PointsOnBoundary, float& _CurrentVelocity
+		FLatentActionInfo& LatentInfo, ELatentActionOutputPins& OutputPins,
+		TArray<FVector>& _PathPoints, AActor* _ActorToMove, bool& _Grounded,
+		float& _Velocity
 	)
-		: LatentActionInfo(LatentInfo)
+		: World(_World)
+		, LatentActionInfo(LatentInfo)
 		, Output(OutputPins)
-		, World(_World)
-		, Path(_Path)
-		, Actor(_Actor)
-		, BoundaryNormals(_BoundaryNormals)
-		, PointsOnBoundary(_PointsOnBoundary)
-		, CurrentVelocity(_CurrentVelocity)
+		, PathPoints(_PathPoints)
+		, ActorToMove(_ActorToMove)
+		, Grounded(_Grounded)
+		, Velocity(_Velocity)
 	{
 		Output = ELatentActionOutputPins::OnStarted;
-		TurnDistance = 100.0f;
-		TargetPointIndex = 1;
-		AngularVelocity = 20.0f;
-		CurrentVelocity = 0.0f;
-		MaxVelocity = 100.0f;
+		Velocity = 150.0f;
 	}
 	virtual void UpdateOperation(FLatentResponse& Response) override;
 };
