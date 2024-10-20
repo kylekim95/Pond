@@ -38,4 +38,6 @@ void UMyTestInteractableComponent::TickComponent(float DeltaTime, ELevelTick Tic
 void UMyTestInteractableComponent::_OnInteract(AActor *Interactable)
 {
 	UE_LOG(LogTemp, Warning, TEXT("MyTestInteractableComponent::_OnInteract"));
+
+	
 }

@@ -31,8 +31,6 @@ void AMyPawn::BeginPlay()
 	if(UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(InputComponent))
 	{
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AMyPawn::OnLookAction);
-		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AMyPawn::OnMoveAction);
-		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Completed, this, &AMyPawn::OnMoveAction2);
 	}
 
 	FRotator CurrentCameraRotation = CameraComponent->GetRelativeRotation();
@@ -50,10 +48,6 @@ void AMyPawn::Tick(float DeltaTime)
 			FMath::Lerp(CurrentCameraRotation.Yaw, TargetCameraRotation.Yaw, 0.025f),
 			CurrentCameraRotation.Roll
 	));
-
-	CameraComponent->SetWorldLocation(
-		CameraComponent->GetComponentLocation() + CameraComponent->GetForwardVector() * MoveDirection.Y * 200.0f * DeltaTime
-	);
 }
 
 // Called to bind functionality to input
@@ -95,17 +89,4 @@ void AMyPawn::OnLookAction(const FInputActionValue& Value)
 	FRotator CurrentCameraRotation = CameraComponent->GetRelativeRotation();
 	if(Direction.Y == 0) TargetCameraRotation.Pitch = CurrentCameraRotation.Pitch;
 	if(Direction.X == 0) TargetCameraRotation.Yaw = CurrentCameraRotation.Yaw;
-}
-
-void AMyPawn::OnMoveAction(const FInputActionValue& Value)
-{
-	FVector2D _Value = Value.Get<FVector2D>();
-
-	MoveDirection = FVector(_Value.X, _Value.Y, 0.0f);
-}
-void AMyPawn::OnMoveAction2(const FInputActionValue& Value)
-{
-	FVector2D _Value = Value.Get<FVector2D>();
-
-	MoveDirection = FVector::Zero();
 }

@@ -23,8 +23,6 @@ class POND_API AMyPawn : public APawn
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Input, meta=(AllowPrivateAccess = "true"))
 	UInputAction* LookAction;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Input, meta=(AllowPrivateAccess = "true"))
-	UInputAction* MoveAction;
 
 public:
 	// Sets default values for this pawn's properties
@@ -42,8 +40,6 @@ public:
 
 private:
 	void OnLookAction(const FInputActionValue& Value);
-	void OnMoveAction(const FInputActionValue& Value);
-	void OnMoveAction2(const FInputActionValue& Value);
 
 	//Percentage of screen
 	float MoveCameraThreshold = 0.05f;
