@@ -35,4 +35,8 @@ private:
 	TArray<FSpawnableLocationDescription> SpawnableLocations;
 	TMap<FString, FVector> IdToVector;
 	TMap<FString, TSet<FString>> LocationsByTag;
+
+	const FString FilePath2 = "MoveLocationTest.json";
+	TArray<FSpawnableLocationDescription> MoveToLocation;
+	TArray<FPlane> Planes;
 };

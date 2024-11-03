@@ -32,10 +32,6 @@ void UMyCustomCursorWidget::NativeConstruct()
         {
             CursorMap.Add(Element, Cursors->FindRow<FCursor>(Element, FString("")));
         }
-        for(auto Element : CursorMap)
-        {
-            UE_LOG(LogTemp, Warning, TEXT("%s: %s"), *(Element.Key.ToString()), *(Element.Value->Descriptor));
-        }
     }
 }
 

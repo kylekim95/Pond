@@ -1,5 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "WorldSubsystems/WS_Position.h"
+#include "Camera/CameraComponent.h"
 
 UWS_Position::UWS_Position()
 {

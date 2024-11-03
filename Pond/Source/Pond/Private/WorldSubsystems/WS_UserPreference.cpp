@@ -30,6 +30,15 @@ void UWS_UserPreference::PostInitialize()
     WS_Network = GetWorld()->GetSubsystem<UWS_Network>();
 }
 
+void UWS_UserPreference::OnWorldBeginPlay(UWorld& InWorld)
+{
+    Super::OnWorldBeginPlay(InWorld);
+
+    FPreferredIncidents _PreferredIncidents;
+    _PreferredIncidents.user_state = UserPreferenceVector;
+    WS_Network->Post("/preferred_incidents", OnPreferredIncidentsDelegate, _PreferredIncidents);
+}
+
 void UWS_UserPreference::UpdateUserPreferenceVector(TArray<float> Influence, TArray<float> Strength)
 {
     if(Influence.Num() != UserPreferenceVector.Num() && Strength.Num() != UserPreferenceVector.Num()){
@@ -47,9 +56,9 @@ void UWS_UserPreference::UpdateUserPreferenceVector(TArray<float> Influence, TAr
         Sum += Diff[i];
     }
     if(Sum >= Threshold){
-        FPreferredIncidents PreferredIncidents;
-        PreferredIncidents.user_state = UserPreferenceVector;
-        WS_Network->Post("/preferred_incidents", OnPreferredIncidentsDelegate, PreferredIncidents);
+        FPreferredIncidents _PreferredIncidents;
+        _PreferredIncidents.user_state = UserPreferenceVector;
+        WS_Network->Post("/preferred_incidents", OnPreferredIncidentsDelegate, _PreferredIncidents);
         PrevUserPreferenceVector = UserPreferenceVector;
     }
 }
@@ -64,6 +73,7 @@ void UWS_UserPreference::OnPreferredIncidents(FHttpRequestPtr Request, FHttpResp
     for(auto Row : Rows){
         FString Name = Row->AsObject()->GetStringField("name");
         double Similarity = Row->AsObject()->GetNumberField("similarity");
-        UE_LOG(LogTemp, Warning, TEXT("%s, %f"), *Name, Similarity);
+
+        PreferredIncidents.Add(Name);
     }
 }

@@ -44,4 +44,6 @@ private:
 	//Percentage of screen
 	float MoveCameraThreshold = 0.05f;
 	FRotator TargetCameraRotation;
+
+	FVector MoveDirection;
 };

@@ -44,8 +44,8 @@ void AMyPawn::Tick(float DeltaTime)
 
 	FRotator CurrentCameraRotation = CameraComponent->GetRelativeRotation();
 	CameraComponent->SetRelativeRotation(FRotator(
-			FMath::Lerp(CurrentCameraRotation.Pitch, TargetCameraRotation.Pitch, 0.05f),
-			FMath::Lerp(CurrentCameraRotation.Yaw, TargetCameraRotation.Yaw, 0.05f),
+			FMath::Lerp(CurrentCameraRotation.Pitch, TargetCameraRotation.Pitch, 0.025f),
+			FMath::Lerp(CurrentCameraRotation.Yaw, TargetCameraRotation.Yaw, 0.025f),
 			CurrentCameraRotation.Roll
 	));
 }
@@ -84,8 +84,8 @@ void AMyPawn::OnLookAction(const FInputActionValue& Value)
 	else
 		Direction.Y = 0;
 
-	TargetCameraRotation.Pitch = Direction.Y * 20.0f;
-	TargetCameraRotation.Yaw = Direction.X * 20.0f;
+	TargetCameraRotation.Pitch = Direction.Y * 85.0f;
+	TargetCameraRotation.Yaw = Direction.X * 90.0f;
 	FRotator CurrentCameraRotation = CameraComponent->GetRelativeRotation();
 	if(Direction.Y == 0) TargetCameraRotation.Pitch = CurrentCameraRotation.Pitch;
 	if(Direction.X == 0) TargetCameraRotation.Yaw = CurrentCameraRotation.Yaw;

@@ -35,7 +35,7 @@ public:
 
 private:
 	UDataTable* DT_Incidents_Time;
-	float Time = 0.0f;
+	float Time = 12.0f;
 	float TimeSpeed = 0.25f;
 	
 	TMap<FString, bool> Spawnable;

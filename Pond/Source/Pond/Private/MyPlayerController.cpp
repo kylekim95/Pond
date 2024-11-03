@@ -10,6 +10,7 @@
 #include "Camera/CameraComponent.h"
 #include "MyInteractable.h"
 #include "Components/WidgetComponent.h"
+#include "WorldSubsystems/WS_Position.h"
 
 AMyPlayerController::AMyPlayerController()
 {
@@ -86,7 +87,6 @@ void AMyPlayerController::OnLookAction(const FInputActionValue& Value)
                     if(MPC_OnHighlight){
                         FVector2D Screen;
                         ProjectWorldLocationToScreen(ActorOnHover->GetActorLocation(), Screen);
-                        UE_LOG(LogTemp, Warning, TEXT("%f, %f"), Screen.X, Screen.Y);
                         MPC_OnHighlight->SetVectorParameterValue("StartScreenPosition", FVector4(Screen.X, Screen.Y, 0, 0));
                         TimerValue = 500.0f;
                     }
@@ -111,6 +111,11 @@ void AMyPlayerController::OnLookAction(const FInputActionValue& Value)
             ActorOnHover = nullptr;
             MasterWidget->ChangeCursor("Circle");
         }
+    }
+
+    UWS_Position* WS_Position = GetWorld()->GetSubsystem<UWS_Position>();
+    if(WS_Position != nullptr){
+        
     }
 }
 
