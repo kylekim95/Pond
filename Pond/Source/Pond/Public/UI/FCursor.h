@@ -13,7 +13,7 @@
 class UMaterial;
 
 USTRUCT(BlueprintType)
-struct FCursor : public FTableRowBase
+struct FMyCursor : public FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
 

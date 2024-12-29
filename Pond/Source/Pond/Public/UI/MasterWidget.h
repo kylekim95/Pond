@@ -36,7 +36,7 @@ public:
 };
 
 UCLASS()
-class TUTORIAL_API UMasterWidget : public UUserWidget
+class POND_API UMasterWidget : public UUserWidget
 {
 	GENERATED_BODY()
 
