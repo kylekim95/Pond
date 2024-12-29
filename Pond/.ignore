@@ -1,6 +1,8 @@
 /.vscode
 /Content
+/DataTables
 /DerivedDataCache
+/EUW
 /Intermediate
 /Saved
-/LocalDerivedDataCache
+/Test_Server
