@@ -11,6 +11,10 @@ AIncident::AIncident()
 void AIncident::BeginPlay()
 {
 	Super::BeginPlay();
+
+	if(ActionSequence == nullptr){
+		ActionSequence = new TQueue<FActionDelegate>();
+	}
 }
 // Called every frame
 void AIncident::Tick(float DeltaTime)

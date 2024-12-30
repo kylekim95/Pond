@@ -8,7 +8,7 @@
 #include "PrintOnInteract.generated.h"
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class TUTORIAL_API UPrintOnInteract : public UActorComponent, public IInteractableComponent
+class POND_API UPrintOnInteract : public UActorComponent, public IInteractableComponent
 {
 	GENERATED_BODY()
 

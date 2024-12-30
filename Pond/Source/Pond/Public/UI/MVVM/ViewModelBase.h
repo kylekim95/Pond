@@ -26,7 +26,7 @@ public: \
 	Delegates.Add({#VarName, VarName##Changed}); \
 
 UCLASS()
-class TUTORIAL_API UViewModelBase : public UObject
+class POND_API UViewModelBase : public UObject
 {
 	GENERATED_BODY()
 

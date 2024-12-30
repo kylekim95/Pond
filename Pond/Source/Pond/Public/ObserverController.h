@@ -13,7 +13,7 @@ class UMasterWidget;
 class UInteractable;
 
 UCLASS()
-class TUTORIAL_API AObserverController : public APlayerController
+class POND_API AObserverController : public APlayerController
 {
 	GENERATED_BODY()
 

@@ -11,7 +11,7 @@ class UInputAction;
 struct FInputActionValue;
 
 UCLASS()
-class TUTORIAL_API AObserver : public APawn
+class POND_API AObserver : public APawn
 {
 	GENERATED_BODY()
 

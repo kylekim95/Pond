@@ -9,7 +9,7 @@
 
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class TUTORIAL_API UPrintOnInteract2 : public UActorComponent, public IInteractableComponent
+class POND_API UPrintOnInteract2 : public UActorComponent, public IInteractableComponent
 {
 	GENERATED_BODY()
 

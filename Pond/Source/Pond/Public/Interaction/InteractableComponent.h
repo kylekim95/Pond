@@ -19,7 +19,7 @@ class UInteractableComponent : public UInterface
 	GENERATED_BODY()
 };
 
-class TUTORIAL_API IInteractableComponent
+class POND_API IInteractableComponent
 {
 	GENERATED_BODY()
 public:

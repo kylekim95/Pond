@@ -1,5 +1,7 @@
-/Pond/LocalDerivedDataCache
-/Pond/.vscode
+/Pond/LocalDerivedDataCache/*
+/Pond/.vscode/*
+/Pond/Content/AnimalVarietyPack/*
+/Pond/Pond.code-workspace
 
 # Visual Studio 2015 user specific files
 .vs/

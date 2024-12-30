@@ -10,7 +10,7 @@ class UHorizontalBoxSlot;
 class UNamedSlot;
 
 UCLASS()
-class TUTORIAL_API UCyclingMenuWidget : public UUserWidget
+class POND_API UCyclingMenuWidget : public UUserWidget
 {
 	GENERATED_BODY()
 

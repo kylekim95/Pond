@@ -7,7 +7,7 @@
 #include "Interactable.generated.h"
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class TUTORIAL_API UInteractable : public UActorComponent
+class POND_API UInteractable : public UActorComponent
 {
 	GENERATED_BODY()
 
